@@ -5,9 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import cafe.adriel.voyager.navigator.Navigator
-import yt.educationalhost.educationalhostacademy.base.views.BaseScreen
-import yt.educationalhost.educationalhostacademy.ui.theme.AIDoctorTheme
+import androidx.navigation.compose.rememberNavController
+import yt.educationalhost.educationalhostacademy.navigation.MainNavGraph
+import yt.educationalhost.educationalhostacademy.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,10 +15,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         installSplashScreen()
         setContent {
+            AppTheme {
+                val navHostController = rememberNavController()
+                MainNavGraph(navHostController)
 
-
-            AIDoctorTheme {
-                Navigator(screen = BaseScreen())
             }
         }
     }

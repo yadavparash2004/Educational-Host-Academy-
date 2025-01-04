@@ -2,16 +2,17 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
     namespace = "yt.educationalhost.educationalhostacademy"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "yt.educationalhost.educationalhostacademy"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -40,9 +41,7 @@ android {
     buildFeatures {
         compose = true
     }
-//    composeOptions {
-//        kotlinCompilerExtensionVersion = "1.5.1"
-//    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -70,12 +69,10 @@ dependencies {
 
 
     implementation(libs.core.splashscreen)
-
-
-
-    implementation(libs.voyegar.navigator)
-
     implementation(libs.image.slideshow)
     implementation(libs.material.icons.extended)
     implementation(libs.coil.compose)
+    implementation(libs.compose.animation)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.compose.navigation)
 }
